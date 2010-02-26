@@ -9,21 +9,21 @@ require 'spec/rails/version'
 require 'spec/rake/spectask'
 require 'cucumber/rake/task'
 
-Hoe.spec 'rspec-rails' do
+Hoe.spec 'rspec-rails-w-factory_girl' do
   self.version = Spec::Rails::VERSION::STRING
   self.summary = Spec::Rails::VERSION::SUMMARY
   self.description = "Behaviour Driven Development for Ruby on Rails."
   self.rubyforge_name = 'rspec'
-  self.developer 'RSpec Development Team', 'rspec-devel@rubyforge.org'
+  self.developer 'RSpec Development Team', 'rspec-devel@rubyforge.org,rspec-rails@robotarmyma.de'
   self.extra_deps = [["rspec",">=1.3.0"],["rack",">=1.0.0"]]
   self.extra_dev_deps = [["cucumber",">= 0.3.99"]]
-  self.remote_rdoc_dir = "rspec-rails/#{Spec::Rails::VERSION::STRING}"
+  self.remote_rdoc_dir = "rspec-rails-w-factory_girl/#{Spec::Rails::VERSION::STRING}"
   self.history_file = 'History.rdoc'
   self.readme_file  = 'README.rdoc'
   self.post_install_message = <<-POST_INSTALL_MESSAGE
 #{'*'*50}
 
-  Thank you for installing rspec-rails-#{Spec::Rails::VERSION::STRING}
+  Thank you for installing rspec-rails-w-factory_girl-#{Spec::Rails::VERSION::STRING}
   
   If you are upgrading, do this in each of your rails apps
   that you want to upgrade:
@@ -48,7 +48,7 @@ end
 task :release => [:clean, :package] do |t|
   version = ENV["VERSION"] or abort "Must supply VERSION=x.y.z"
   abort "Versions don't match #{version} vs #{Spec::Rails::VERSION::STRING}" unless version == Spec::Rails::VERSION::STRING
-  pkg = "pkg/rspec-rails-#{version}"
+  pkg = "pkg/rspec-rails-w-factory_girl-#{version}"
 
   rubyforge = RubyForge.new.configure
   puts "Logging in to rubyforge ..."

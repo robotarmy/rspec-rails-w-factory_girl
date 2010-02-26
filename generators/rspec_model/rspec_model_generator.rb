@@ -20,7 +20,7 @@ class RspecModelGenerator < ModelGenerator
       m.template 'model:model.rb',      File.join('app/models', class_path, "#{file_name}.rb")
       m.template 'model_spec.rb',       File.join('spec/models', class_path, "#{file_name}_spec.rb")
       unless options[:skip_fixture] or options[:skip_factories] 
-        m.template 'factories.rb',  File.join('spec/factories.rb', "#{table_name}_factory.rb")
+        m.template 'factories.rb',  File.join('spec/factories', "#{table_name}_factory.rb")
       end
 
       unless options[:skip_migration]
