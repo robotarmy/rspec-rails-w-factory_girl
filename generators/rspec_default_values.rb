@@ -13,7 +13,7 @@ module Rails
           when :belongs_to, :references     then "1"
           else
             ""
-        end
+          end
       end
 
       def name_or_reference
