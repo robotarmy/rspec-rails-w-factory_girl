@@ -29,11 +29,12 @@ HELPFUL_INSTRUCTIONS
       test_env = 'config/environments/test.rb'
       contents = File.read(test_env)
       unless contents =~ /config\.gem\s+(\"|\')rspec/m
-        puts "Configuring rspec and rspec-rails gems in #{test_env} ..."
+        puts "Configuring rspec and rspec-rails and factory_girl gems in #{test_env} ..."
         puts
         require File.expand_path('../../../lib/spec/rails/version.rb', __FILE__)
         rspec_config = <<-EOF
   config.gem 'rspec-rails', :version => '>= #{Spec::Rails::VERSION::STRING}', :lib => false unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec-rails'))
+  config.gem 'factory_girl', lib => false unless File.directory?(File.join(Rails.root, 'vendor/plugins/factory_girl'))
   EOF
         File.open(test_env, "wb") do |f|
           f.puts contents
