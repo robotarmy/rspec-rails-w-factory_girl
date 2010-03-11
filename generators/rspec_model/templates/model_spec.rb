@@ -1,10 +1,7 @@
 require 'spec_helper'
-
 describe <%= class_name %> do
   before(:each) do
-    @valid_attributes = {
-      <%= attributes.map{|a| ":#{a.name_or_reference} => #{a.default_value}" }.join(",\n      ") %>
-    }
+    @valid_attributes = Factory.attributes_for(:<%=  class_name.underscore%>)
   end
 
   it "should create a new instance given valid attributes" do

@@ -33,7 +33,7 @@ HELPFUL_INSTRUCTIONS
         puts
         require File.expand_path('../../../lib/spec/rails/version.rb', __FILE__)
         rspec_config = <<-EOF
-  config.gem 'rspec-rails', :version => '>= #{Spec::Rails::VERSION::STRING}', :lib => false unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec-rails'))
+  config.gem 'rspec-rails-w-factory_girl', :version => '>= #{Spec::Rails::VERSION::STRING}', :lib => false unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec-rails-w-factory_girl'))
   config.gem 'factory_girl', lib => false unless File.directory?(File.join(Rails.root, 'vendor/plugins/factory_girl'))
   EOF
         File.open(test_env, "wb") do |f|
